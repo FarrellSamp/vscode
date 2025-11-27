@@ -31,7 +31,7 @@
       overflow-x: hidden;
     }
 
-    /* === Header / Navbar === */
+    /* Header */
     header {
       padding: 24px 5%;
       display: flex;
@@ -73,7 +73,7 @@
       color: var(--blue-light);
     }
 
-    /* === Hero Section === */
+    /* Hero */
     .hero {
       height: 100vh;
       display: flex;
@@ -126,7 +126,7 @@
       box-shadow: 0 6px 25px rgba(0, 243, 255, 0.7);
     }
 
-    /* === Main Content Sections === */
+    /* Sections */
     .section {
       max-width: 1000px;
       margin: 100px auto;
@@ -149,7 +149,6 @@
       text-align: center;
     }
 
-    /* === Cards Layout === */
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -190,7 +189,6 @@
       font-size: 0.95rem;
     }
 
-    /* === Server Status Bar === */
     .status-bar {
       background: rgba(15, 15, 22, 0.7);
       border: 1px solid rgba(0, 243, 255, 0.2);
@@ -217,7 +215,6 @@
       margin-right: 8px;
     }
 
-    /* === Footer === */
     footer {
       text-align: center;
       padding: 40px 20px;
@@ -227,7 +224,6 @@
       margin-top: 60px;
     }
 
-    /* === Responsive === */
     @media (max-width: 768px) {
       .hero h1 { font-size: 3rem; }
       .hero p { font-size: 1.05rem; }
@@ -287,16 +283,16 @@
       </div>
       <div class="card">
         <i class="fas fa-comments"></i>
-        <h3>Discord Terintegrasi</h3>
-        <p>Verifikasi & notifikasi langsung dari Discord.</p>
+        <h3>Komunitas Aktif</h3>
+        <p>Bergabunglah dengan ratusan pemain di grup WhatsApp resmi.</p>
       </div>
     </div>
 
     <!-- Server Status -->
     <div class="status-bar">
       <div class="status-item"><span class="status-dot"></span> Server Online</div>
-      <div class="status-item">👥 Pemain: <strong>84/200</strong></div>
-      <div class="status-item">📍 IP: <code>play.nerverindo.my.id:7777</code></div>
+      <div class="status-item">📍 IP: <strong>152.42.220.33:2000</strong></div>
+      <div class="status-item">👥 Pemain: <strong>Live</strong></div>
     </div>
   </section>
 
@@ -306,23 +302,34 @@
     <div class="cards">
       <div class="card">
         <i class="fas fa-download"></i>
-        <h3>Download Game</h3>
-        <p>Instal SA-MP 0.3.7 dan pastikan GTA San Andreas original.</p>
+        <h3>Instal SA-MP</h3>
+        <p>Pastikan Anda memiliki SA-MP 0.3.7 dan GTA San Andreas original.</p>
       </div>
       <div class="card">
         <i class="fas fa-sign-in-alt"></i>
         <h3>Masukkan IP</h3>
-        <p>play.nerverindo.my.id:7777</p>
+        <p><code>152.42.220.33:2000</code></p>
       </div>
       <div class="card">
-        <i class="fas fa-user-check"></i>
-        <h3>Daftar In-Game</h3>
-        <p>Buat karakter dan ikuti panduan awal.</p>
+        <i class="fab fa-whatsapp"></i>
+        <h3>Join Komunitas</h3>
+        <p><a href="https://chat.whatsapp.com/CVmKiCAgCDk7XPD3KOqQBV" target="_blank" style="color:var(--blue-light); text-decoration: none;">Grup WhatsApp Resmi</a></p>
       </div>
     </div>
     <div style="text-align:center; margin-top:30px;">
       <a href="https://wa.me/6285191923519" class="btn" style="padding:12px 32px; font-size:1rem;">Hubungi Admin</a>
     </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <h2>Kontak Admin</h2>
+    <p style="text-align:center; color:var(--text-gray);">
+      Butuh bantuan? Hubungi admin via WhatsApp:<br>
+      <a href="https://wa.me/6285191923519" target="_blank" style="color:var(--blue-light); font-weight:600; text-decoration: none;">
+        +62 851-9192-3519
+      </a>
+    </p>
   </section>
 
   <!-- Footer -->
@@ -332,7 +339,6 @@
   </footer>
 
   <script>
-    // Fade-in on scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -343,7 +349,6 @@
 
     document.querySelectorAll('.section').forEach(sec => observer.observe(sec));
 
-    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -355,4 +360,4 @@
   </script>
 
 </body>
-  </html>
+</html>
