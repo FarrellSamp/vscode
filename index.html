@@ -3,259 +3,356 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nerver Indo Roleplay</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <title>Nerver Indo Roleplay • Premium SA-MP Server</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
+    :root {
+      --blue-light: #00f3ff;
+      --blue-main: #0077ff;
+      --blue-dark: #004080;
+      --bg-dark: #0a0a0f;
+      --bg-card: #0f0f16;
+      --text-white: #ffffff;
+      --text-gray: #b0b0c0;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
     }
 
     body {
-      background: #0d0d0d;
-      color: #e6e6e6;
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
       overflow-x: hidden;
     }
 
-    /* NAVBAR */
-    nav {
-      width: 100%;
-      padding: 20px 0;
-      background: rgba(10, 10, 10, 0.92);
-      border-bottom: 1px solid #1b1b1b;
-      position: fixed;
-      top: 0;
-      z-index: 100;
+    /* === Header / Navbar === */
+    header {
+      padding: 24px 5%;
       display: flex;
-      justify-content: center;
-      gap: 30px;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(8, 8, 12, 0.85);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0, 119, 255, 0.2);
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 800;
+      font-size: 1.8rem;
+      background: linear-gradient(90deg, var(--blue-light), var(--blue-main));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 28px;
+      list-style: none;
     }
 
     nav a {
-      color: #e6e6e6;
+      color: var(--text-gray);
       text-decoration: none;
-      font-size: 1rem;
-      font-weight: 500;
+      font-weight: 600;
+      font-size: 1.02rem;
       transition: color 0.25s ease;
     }
 
-    nav a:hover {
-      color: #1e90ff;
+    nav a:hover, nav a.active {
+      color: var(--blue-light);
     }
 
-    /* HERO SECTION */
+    /* === Hero Section === */
     .hero {
-      background: url('https://images6.alphacoders.com/131/1312728.png') center/cover no-repeat;
-      height: 520px;
+      height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
-      margin-top: 70px;
-      position: relative;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.65);
+      text-align: center;
+      background: linear-gradient(rgba(10, 10, 15, 0.85), rgba(10, 10, 15, 0.9)), url('https://images.wallpaperscraft.com/image/single/gta_san_andreas_city_night_1312728_1920x1080.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 0 20px;
     }
 
     .hero-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
       max-width: 800px;
     }
 
     .hero h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+      font-family: 'Playfair Display', serif;
+      font-size: 4.2rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      background: linear-gradient(90deg, var(--blue-light), #ffffff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
     }
 
     .hero p {
-      font-size: 1.2rem;
-      color: #dcdcdc;
-      letter-spacing: 0.5px;
+      font-size: 1.25rem;
+      color: var(--text-gray);
+      margin-bottom: 32px;
     }
 
-    /* CONTENT CONTAINER */
-    .container {
-      max-width: 900px;
-      margin: 60px auto;
-      background: #111;
-      border: 1px solid #1f1f1f;
-      border-radius: 12px;
-      padding: 40px;
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
-    }
-
-    .container h2 {
-      font-size: 1.8rem;
-      color: #1e90ff;
-      margin-bottom: 20px;
-      font-weight: 600;
-    }
-
-    .container p,
-    .container a {
-      font-size: 1rem;
-      color: #cfcfcf;
-      line-height: 1.7;
-    }
-
-    .container a {
-      color: #1e90ff;
-      text-decoration: none;
-    }
-
-    .container a:hover {
-      text-decoration: underline;
-    }
-
-    /* BUTTON */
     .btn {
-      margin-top: 18px;
-      background: #1e90ff;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 600;
-      color: white;
-      cursor: pointer;
-      transition: all 0.25s ease;
       display: inline-block;
-      text-align: center;
+      padding: 14px 36px;
+      background: linear-gradient(90deg, var(--blue-main), var(--blue-light));
+      color: #000;
+      font-weight: 700;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
     }
 
     .btn:hover {
-      background: #4aaaff;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 10px rgba(30, 144, 255, 0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 6px 25px rgba(0, 243, 255, 0.7);
     }
 
-    /* FOOTER */
-    footer {
-      margin-top: 80px;
-      padding: 25px;
+    /* === Main Content Sections === */
+    .section {
+      max-width: 1000px;
+      margin: 100px auto;
+      padding: 0 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      margin-bottom: 30px;
+      color: var(--blue-light);
       text-align: center;
-      background: #0b0b0b;
-      color: #b9b9b9;
-      border-top: 1px solid #1a1a1a;
-      font-size: 0.9rem;
     }
 
-    /* RESPONSIVE */
+    /* === Cards Layout === */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid rgba(0, 119, 255, 0.2);
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+      transition: all 0.4s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: var(--blue-light);
+      box-shadow: 0 0 25px rgba(0, 243, 255, 0.25);
+    }
+
+    .card i {
+      font-size: 2.2rem;
+      color: var(--blue-light);
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 14px;
+      color: white;
+    }
+
+    .card p {
+      color: var(--text-gray);
+      font-size: 0.95rem;
+    }
+
+    /* === Server Status Bar === */
+    .status-bar {
+      background: rgba(15, 15, 22, 0.7);
+      border: 1px solid rgba(0, 243, 255, 0.2);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      margin: 40px 0;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .status-item {
+      font-size: 1rem;
+    }
+
+    .status-dot {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #00ff40;
+      margin-right: 8px;
+    }
+
+    /* === Footer === */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-gray);
+      font-size: 0.95rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      margin-top: 60px;
+    }
+
+    /* === Responsive === */
     @media (max-width: 768px) {
-      nav {
-        gap: 15px;
-        padding: 15px 0;
-      }
-
-      nav a {
-        font-size: 0.9rem;
-      }
-
-      .hero h1 {
-        font-size: 2.2rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-
-      .container {
-        padding: 25px;
-      }
+      .hero h1 { font-size: 3rem; }
+      .hero p { font-size: 1.05rem; }
+      nav ul { gap: 18px; }
+      .logo { font-size: 1.5rem; }
+      .section { margin: 70px auto; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav>
-    <a href="#home">Beranda</a>
-    <a href="#about">Tentang</a>
-    <a href="#rules">Aturan</a>
-    <a href="#join">Cara Bergabung</a>
-    <a href="#contact">Kontak</a>
-  </nav>
+  <!-- Header -->
+  <header>
+    <div class="logo">NERVER INDO</div>
+    <nav>
+      <ul>
+        <li><a href="#home" class="active">Beranda</a></li>
+        <li><a href="#about">Tentang</a></li>
+        <li><a href="#features">Fitur</a></li>
+        <li><a href="#join">Bergabung</a></li>
+        <li><a href="#contact">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <!-- HERO -->
+  <!-- Hero -->
   <section class="hero" id="home">
     <div class="hero-content">
       <h1>Nerver Indo Roleplay</h1>
-      <p>SA-MP Indonesia Roleplay Server – Experience Realistic Roleplay</p>
+      <p>Server SA-MP Roleplay Indonesia dengan sistem realistis, komunitas aktif, dan performa tinggi.</p>
+      <a href="#join" class="btn">GABUNG SEKARANG</a>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <div class="container" id="about">
-    <h2>Tentang Server</h2>
-    <p>
-      Nerver Indo Roleplay dibangun dengan konsep roleplay modern, stabil, dan fokus pada pengalaman pemain.
-      Dengan sistem yang terus dikembangkan serta komunitas yang kuat, server ini menawarkan kualitas roleplay
-      tingkat tinggi seperti server besar profesional internasional.
+  <!-- About -->
+  <section class="section" id="about">
+    <h2>Tentang Kami</h2>
+    <p style="text-align:center; color:var(--text-gray); max-width:700px; margin:0 auto;">
+      Didirikan pada 2025, Nerver Indo Roleplay hadir untuk memberikan pengalaman roleplay berkualitas tinggi di Indonesia.
+      Kami menggabungkan sistem modern, aturan ketat, dan dukungan teknis 24/7 demi menjaga kualitas permainan.
     </p>
-  </div>
+  </section>
 
-  <!-- RULES -->
-  <div class="container" id="rules">
-    <h2>Aturan Dasar</h2>
-    <p>
-      • Dilarang menggunakan cheat, exploit, atau bug abuse.<br>
-      • Wajib bermain sesuai karakter (OOC dilarang saat roleplay aktif).<br>
-      • Hormati seluruh pemain dan staf.<br>
-      • Gunakan bahasa Indonesia yang sopan dan jelas.<br>
-      • Ikuti arahan dari Moderator dan Admin saat bermain.
-    </p>
-  </div>
+  <!-- Features -->
+  <section class="section" id="features">
+    <h2>Fitur Unggulan</h2>
+    <div class="cards">
+      <div class="card">
+        <i class="fas fa-shield-alt"></i>
+        <h3>Anti-Cheat</h3>
+        <p>Sistem proteksi canggih melawan cheat, exploit, dan macro.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-sync-alt"></i>
+        <h3>Real-Time Sync</h3>
+        <p>Data karakter, inventaris, dan ekonomi selalu aman dan sinkron.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-comments"></i>
+        <h3>Discord Terintegrasi</h3>
+        <p>Verifikasi & notifikasi langsung dari Discord.</p>
+      </div>
+    </div>
 
-  <!-- JOIN -->
-  <div class="container" id="join">
+    <!-- Server Status -->
+    <div class="status-bar">
+      <div class="status-item"><span class="status-dot"></span> Server Online</div>
+      <div class="status-item">👥 Pemain: <strong>84/200</strong></div>
+      <div class="status-item">📍 IP: <code>play.nerverindo.my.id:7777</code></div>
+    </div>
+  </section>
+
+  <!-- Join -->
+  <section class="section" id="join">
     <h2>Cara Bergabung</h2>
-    <p>
-      <strong>IP Server:</strong> <code>play.nerverindo-roleplay.my.id:7777</code><br>
-      <strong>Versi Game:</strong> SA-MP 0.3.7<br><br>
-      <strong>Grup WhatsApp:</strong> 
-      <a href="https://chat.whatsapp.com/..." target="_blank" rel="noopener">Klik untuk masuk</a>
-    </p>
-    <button class="btn" onclick="copyIP()">Salin IP Server</button>
-  </div>
+    <div class="cards">
+      <div class="card">
+        <i class="fas fa-download"></i>
+        <h3>Download Game</h3>
+        <p>Instal SA-MP 0.3.7 dan pastikan GTA San Andreas original.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-sign-in-alt"></i>
+        <h3>Masukkan IP</h3>
+        <p>play.nerverindo.my.id:7777</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-user-check"></i>
+        <h3>Daftar In-Game</h3>
+        <p>Buat karakter dan ikuti panduan awal.</p>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:30px;">
+      <a href="https://wa.me/6285191923519" class="btn" style="padding:12px 32px; font-size:1rem;">Hubungi Admin</a>
+    </div>
+  </section>
 
-  <!-- CONTACT -->
-  <div class="container" id="contact">
-    <h2>Kontak Admin</h2>
-    <p>
-      WhatsApp: <a href="https://wa.me/6285191923519" target="_blank" rel="noopener">Hubungi Admin</a><br>
-      Email: <a href="mailto:support@nerverindo.my.id">support@nerverindo.my.id</a>
-    </p>
-  </div>
-
-  <!-- FOOTER -->
+  <!-- Footer -->
   <footer>
-    &copy; 2025 Nerver Indo Roleplay – All Rights Reserved.
+    &copy; 2025 Nerver Indo Roleplay. All rights reserved.<br>
+    Official SA-MP Indonesia Roleplay Server • Powered by Nerver Network
   </footer>
 
   <script>
-    function copyIP() {
-      const ip = "play.nerverindo-roleplay.my.id:7777";
-      navigator.clipboard.writeText(ip).then(() => {
-        alert("IP Server berhasil disalin:\n" + ip);
-      }).catch(() => {
-        alert("Gagal menyalin IP. Silakan salin manual.");
+    // Fade-in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
       });
-    }
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.section').forEach(sec => observer.observe(sec));
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
   </script>
 
 </body>
-</html>
+  </html>
