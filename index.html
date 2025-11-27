@@ -7,7 +7,7 @@
   <meta name="description" content="Server SA-MP Roleplay Indonesia — Realistis, Stabil, dan Komunitas Aktif." />
   
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link href=" https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap " rel="stylesheet" />
   
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -39,7 +39,7 @@
     }
 
     h1, h2, h3 {
-      font-family: 'Playforce Display', serif;
+      font-family: 'Playfair Display', serif;
       font-weight: 800;
     }
 
@@ -130,17 +130,44 @@
       width: 100%;
     }
 
+    /* HERO WITH VIDEO */
     .hero {
       height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(rgba(7, 7, 12, 0.88), rgba(7, 7, 12, 0.95)),
-                  url('https://images.wallpaperscraft.com/image/single/gta_san_andreas_city_night_1312728_1920x1080.jpg');
-      background-size: cover;
-      background-position: center;
+      position: relative;
       text-align: center;
       padding: 0 20px;
+      overflow: hidden;
+    }
+
+    #bgVideo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      object-fit: cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(7, 7, 12, 0.85);
+      z-index: -1;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      z-index: 1;
     }
 
     .hero-content h1 {
@@ -153,6 +180,36 @@
       font-size: 1.25rem;
       color: var(--gray);
       margin-bottom: 36px;
+    }
+
+    /* Audio Controls */
+    .audio-controls {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: rgba(15, 15, 22, 0.8);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      backdrop-filter: blur(5px);
+    }
+
+    .audio-controls button {
+      background: var(--cyan);
+      color: #000;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
     }
 
     section {
@@ -305,10 +362,26 @@
       section { padding: 80px 0; }
       .section-title { font-size: 2.1rem; }
       .btn { padding: 12px 28px; font-size: 1rem; }
+      .audio-controls {
+        bottom: 15px;
+        right: 15px;
+        padding: 6px 12px;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- Background Audio -->
+  <audio id="bgMusic" loop>
+    <source src="nerverindojaya.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Audio Control Button -->
+  <div class="audio-controls" id="audioCtrl">
+    <button id="audioBtn">▶</button>
+  </div>
 
   <!-- Header -->
   <header>
@@ -317,16 +390,21 @@
         <ul>
           <li><a href="#home" class="active">Beranda</a></li>
           <li><a href="#about">Tentang</a></li>
-          <li><a href="#features">Fitur</a></li>
           <li><a href="#staff">Staff</a></li>
+          <li><a href="#features">Fitur</a></li>
           <li><a href="#join">Bergabung</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero with Video -->
   <section class="hero" id="home">
+    <video autoplay muted loop playsinline id="bgVideo">
+      <source src="video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1>Nerver Indo Roleplay</h1>
       <p>Server SA-MP Roleplay Indonesia dengan sistem realistis, komunitas aktif, dan performa tinggi.</p>
@@ -448,12 +526,12 @@
         </div>
       </div>
 
-      <div class="status" style="background: var(--card); border-radius: 20px; padding: 24px; display: flex; justify-content: center; flex-wrap: wrap; gap: 24px; max-width: 850px; margin: 50px auto 0; border: 1px solid var(--border);">
-        <div class="status-item" style="display: flex; align-items: center; gap: 10px; font-size: 1.05rem; color: var(--gray);">
+      <div style="background: var(--card); border-radius: 20px; padding: 24px; display: flex; justify-content: center; flex-wrap: wrap; gap: 24px; max-width: 850px; margin: 50px auto 0; border: 1px solid var(--border);">
+        <div style="display: flex; align-items: center; gap: 10px; font-size: 1.05rem; color: var(--gray);">
           <span style="width: 10px; height: 10px; background: #00ff40; border-radius: 50%; box-shadow: 0 0 8px #00ff40;"></span> Online
         </div>
-        <div class="status-item">IP: <strong>152.42.220.33:2000</strong></div>
-        <div class="status-item">Versi: SA-MP 0.3.7</div>
+        <div>IP: <strong>152.42.220.33:2000</strong></div>
+        <div>Versi: SA-MP 0.3.7</div>
       </div>
     </div>
   </section>
@@ -501,6 +579,30 @@
   </footer>
 
   <script>
+    // Audio toggle
+    const bgMusic = document.getElementById('bgMusic');
+    const audioBtn = document.getElementById('audioBtn');
+    let isPlaying = false;
+
+    audioBtn.addEventListener('click', () => {
+      if (isPlaying) {
+        bgMusic.pause();
+        audioBtn.textContent = '▶';
+        isPlaying = false;
+      } else {
+        const playPromise = bgMusic.play();
+        if (playPromise !== undefined) {
+          playPromise.then(() => {
+            audioBtn.textContent = '⏸';
+            isPlaying = true;
+          }).catch(() => {
+            alert('Gagal memutar musik. Silakan coba di desktop atau izinkan autoplay.');
+          });
+        }
+      }
+    });
+
+    // Fade-in on scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -508,6 +610,7 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(link => {
       link.addEventListener('click', function(e) {
         e.preventDefault();
@@ -521,6 +624,7 @@
       });
     });
 
+    // Copy IP
     document.getElementById('copyBtn').addEventListener('click', async () => {
       const ip = '152.42.220.33:2000';
       try {
@@ -538,6 +642,7 @@
       }
     });
 
+    // Active nav
     window.addEventListener('scroll', () => {
       const sections = ['home', 'about', 'staff', 'features', 'join'];
       const scrollPos = window.scrollY + 100;
