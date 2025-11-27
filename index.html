@@ -13,7 +13,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
-    /* ========== VARIABLES ========== */
     :root {
       --blue: #0077ff;
       --cyan: #00f3ff;
@@ -26,7 +25,6 @@
       --border: rgba(0, 119, 255, 0.15);
     }
 
-    /* ========== RESET & BASE ========== */
     *, *::before, *::after {
       box-sizing: border-box;
     }
@@ -41,7 +39,7 @@
     }
 
     h1, h2, h3 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Playforce Display', serif;
       font-weight: 800;
     }
 
@@ -57,7 +55,6 @@
       padding: 0 24px;
     }
 
-    /* ========== BUTTON ========== */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -80,7 +77,6 @@
       box-shadow: 0 10px 30px rgba(0, 243, 255, 0.55);
     }
 
-    /* ========== HEADER ========== */
     header {
       position: fixed;
       top: 0;
@@ -95,16 +91,8 @@
 
     .header-inner {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-    }
-
-    .logo {
-      font-size: 1.9rem;
-      background: linear-gradient(90deg, var(--cyan), var(--blue));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
     }
 
     nav ul {
@@ -142,7 +130,6 @@
       width: 100%;
     }
 
-    /* ========== HERO ========== */
     .hero {
       height: 100vh;
       display: flex;
@@ -156,23 +143,18 @@
       padding: 0 20px;
     }
 
-    .hero-content {
-      max-width: 800px;
-    }
-
-    .hero h1 {
+    .hero-content h1 {
       font-size: 4.2rem;
       margin-bottom: 24px;
       text-shadow: 0 0 25px rgba(0, 243, 255, 0.4);
     }
 
-    .hero p {
+    .hero-content p {
       font-size: 1.25rem;
       color: var(--gray);
       margin-bottom: 36px;
     }
 
-    /* ========== SECTIONS ========== */
     section {
       padding: 120px 0;
     }
@@ -198,7 +180,6 @@
       font-size: 1.05rem;
     }
 
-    /* ========== CARDS ========== */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -240,41 +221,64 @@
       font-size: 0.98rem;
     }
 
-    .card a:hover {
-      text-decoration: underline;
-    }
-
-    /* ========== STATUS BAR ========== */
-    .status {
+    .staff-list {
       background: var(--card);
       border-radius: 20px;
-      padding: 24px;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 24px;
-      max-width: 850px;
-      margin: 50px auto 0;
+      padding: 30px;
       border: 1px solid var(--border);
+      margin-top: 20px;
     }
 
-    .status-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 1.05rem;
+    .staff-list h3 {
+      color: var(--cyan);
+      margin-bottom: 16px;
+      font-size: 1.3rem;
+    }
+
+    .staff-list ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .staff-list li {
+      padding: 6px 0;
+      color: var(--gray);
+      font-size: 1rem;
+    }
+
+    .rules-box {
+      background: rgba(15, 15, 22, 0.6);
+      border-left: 3px solid var(--blue);
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+
+    .rules-box h4 {
+      color: var(--cyan);
+      margin-bottom: 12px;
+    }
+
+    .rules-box ul {
+      padding-left: 20px;
       color: var(--gray);
     }
 
-    .status-dot {
-      width: 10px;
-      height: 10px;
-      background: #00ff40;
-      border-radius: 50%;
-      box-shadow: 0 0 8px #00ff40;
+    .rules-box li {
+      margin-bottom: 6px;
     }
 
-    /* ========== FOOTER ========== */
+    .note {
+      background: rgba(255, 255, 0, 0.08);
+      border: 1px solid rgba(255, 255, 0, 0.2);
+      color: #ffcc00;
+      padding: 16px;
+      border-radius: 10px;
+      font-style: italic;
+      margin-top: 20px;
+    }
+
     footer {
       padding: 60px 0 40px;
       text-align: center;
@@ -283,7 +287,6 @@
       border-top: 1px solid rgba(255, 255, 255, 0.04);
     }
 
-    /* ========== ANIMATIONS ========== */
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -295,12 +298,10 @@
       transform: translateY(0);
     }
 
-    /* ========== RESPONSIVE ========== */
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2.9rem; }
-      .hero p { font-size: 1.1rem; }
-      nav ul { gap: 20px; }
-      .logo { font-size: 1.6rem; }
+      .hero-content h1 { font-size: 2.9rem; }
+      .hero-content p { font-size: 1.1rem; }
+      nav ul { gap: 20px; font-size: 0.95rem; }
       section { padding: 80px 0; }
       .section-title { font-size: 2.1rem; }
       .btn { padding: 12px 28px; font-size: 1rem; }
@@ -312,14 +313,13 @@
   <!-- Header -->
   <header>
     <div class="container header-inner">
-      <div class="logo">NERVER INDO</div>
       <nav>
         <ul>
           <li><a href="#home" class="active">Beranda</a></li>
           <li><a href="#about">Tentang</a></li>
           <li><a href="#features">Fitur</a></li>
+          <li><a href="#staff">Staff</a></li>
           <li><a href="#join">Bergabung</a></li>
-          <li><a href="#contact">Kontak</a></li>
         </ul>
       </nav>
     </div>
@@ -348,6 +348,78 @@
     </div>
   </section>
 
+  <!-- Staff -->
+  <section id="staff" class="fade-in">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Pengurus Server</h2>
+        <p class="section-subtitle">Tim yang menjaga kualitas dan keadilan di Nerver Indo Roleplay.</p>
+      </div>
+
+      <div class="staff-list">
+        <h3>🤴 OWNER</h3>
+        <ul>
+          <li>→ Zamz</li>
+          <li>→ Ditz</li>
+        </ul>
+
+        <h3>🤵‍♂️ CO-OWNER</h3>
+        <ul>
+          <li>→ —</li>
+        </ul>
+
+        <h3>👨‍⚖️ HIGH ADMIN</h3>
+        <ul>
+          <li>→ Zamz</li>
+        </ul>
+
+        <h3>🦸‍♂️ ADMIN GOODSIDE</h3>
+        <ul>
+          <li>→ Zamz</li>
+          <li>→ Super Wings</li>
+        </ul>
+
+        <h3>🦹‍♂️ ADMIN BADSIDE</h3>
+        <ul>
+          <li>→ Acong</li>
+        </ul>
+
+        <h3>👨‍🎓 ADMIN CUSTOMER SERVICE</h3>
+        <ul>
+          <li>→ Levy</li>
+          <li>→ Arzil</li>
+          <li>→ Drakbyte</li>
+        </ul>
+
+        <h3>👨🏻‍💼 ADMIN WHITELIST</h3>
+        <ul>
+          <li>→ Rebi</li>
+          <li>→ Raff</li>
+          <li>→ Arzil</li>
+          <li>→ Drakbyte</li>
+        </ul>
+
+        <div class="rules-box">
+          <h4>📝 PERATURAN STAFF</h4>
+          <ul>
+            <li>Fast respon terhadap warga</li>
+            <li>Jaga attitude atau perilaku terhadap warga</li>
+            <li>Nggak pandang bulu (pilih kasih)</li>
+            <li>RP Badside gak boleh make IC Admin</li>
+            <li>Gak online 1 hari → kick tanpa alasan</li>
+            <li>Jadi admin di server lain → langsung di kick</li>
+            <li>Saat RP gak boleh duty admin</li>
+            <li>Jangan salah menggunakan cmd admin</li>
+          </ul>
+        </div>
+
+        <div class="note">
+          ⚠️ KETAHUAN MELANGGAR SIAP-SIAP DI KICK
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Fitur -->
   <section id="features" class="fade-in">
     <div class="container">
@@ -372,12 +444,14 @@
         <div class="card">
           <div class="card-icon"><i class="fab fa-whatsapp"></i></div>
           <h3>Komunitas Aktif</h3>
-          <p><a href="https://chat.whatsapp.com/CVmKiCAgCDk7XPD3KOqQBV" target="_blank">Grup WhatsApp Resmi</a></p>
+          <p><a href="https://chat.whatsapp.com/CVmKiCAgCDk7XPD3KOqQBV" target="_blank">Gabung Grup Resmi</a></p>
         </div>
       </div>
 
-      <div class="status">
-        <div class="status-item"><span class="status-dot"></span> Online</div>
+      <div class="status" style="background: var(--card); border-radius: 20px; padding: 24px; display: flex; justify-content: center; flex-wrap: wrap; gap: 24px; max-width: 850px; margin: 50px auto 0; border: 1px solid var(--border);">
+        <div class="status-item" style="display: flex; align-items: center; gap: 10px; font-size: 1.05rem; color: var(--gray);">
+          <span style="width: 10px; height: 10px; background: #00ff40; border-radius: 50%; box-shadow: 0 0 8px #00ff40;"></span> Online
+        </div>
         <div class="status-item">IP: <strong>152.42.220.33:2000</strong></div>
         <div class="status-item">Versi: SA-MP 0.3.7</div>
       </div>
@@ -420,23 +494,6 @@
     </div>
   </section>
 
-  <!-- Kontak -->
-  <section id="contact" class="fade-in">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Kontak Admin</h2>
-        <p class="section-subtitle">
-          Butuh bantuan? Kami siap membantu 24/7.
-        </p>
-      </div>
-      <p style="text-align: center; color: var(--gray); font-size: 1.1rem;">
-        <a href="https://wa.me/62851923519" style="color: var(--cyan); font-weight: 600;">
-          +62 851-9192-3519
-        </a>
-      </p>
-    </div>
-  </section>
-
   <!-- Footer -->
   <footer>
     &copy; 2025 Nerver Indo Roleplay — All Rights Reserved.<br>
@@ -444,16 +501,13 @@
   </footer>
 
   <script>
-    // Fade-in on scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.1 });
-
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(link => {
       link.addEventListener('click', function(e) {
         e.preventDefault();
@@ -467,7 +521,6 @@
       });
     });
 
-    // Copy IP
     document.getElementById('copyBtn').addEventListener('click', async () => {
       const ip = '152.42.220.33:2000';
       try {
@@ -485,19 +538,15 @@
       }
     });
 
-    // Active nav highlight
     window.addEventListener('scroll', () => {
-      const sections = ['home', 'about', 'features', 'join', 'contact'];
+      const sections = ['home', 'about', 'staff', 'features', 'join'];
       const scrollPos = window.scrollY + 100;
-
       sections.forEach(id => {
         const section = document.getElementById(id);
         const navLink = document.querySelector(`nav a[href="#${id}"]`);
         if (!section || !navLink) return;
-
         const offsetTop = section.offsetTop;
         const offsetBottom = offsetTop + section.offsetHeight;
-
         if (scrollPos >= offsetTop && scrollPos < offsetBottom) {
           document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
           navLink.classList.add('active');
@@ -507,4 +556,4 @@
   </script>
 
 </body>
-</html>
+  </html>
