@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nerver Indo Roleplay</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #0d0d0d;
+      color: #e6e6e6;
+      overflow-x: hidden;
+    }
+
+    /* NAVBAR */
+    nav {
+      width: 100%;
+      padding: 20px 0;
+      background: rgba(10, 10, 10, 0.92);
+      border-bottom: 1px solid #1b1b1b;
+      position: fixed;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    nav a {
+      color: #e6e6e6;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: color 0.25s ease;
+    }
+
+    nav a:hover {
+      color: #1e90ff;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      background: url('https://images6.alphacoders.com/131/1312728.png') center/cover no-repeat;
+      height: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      margin-top: 70px;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.65);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #dcdcdc;
+      letter-spacing: 0.5px;
+    }
+
+    /* CONTENT CONTAINER */
+    .container {
+      max-width: 900px;
+      margin: 60px auto;
+      background: #111;
+      border: 1px solid #1f1f1f;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .container h2 {
+      font-size: 1.8rem;
+      color: #1e90ff;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .container p,
+    .container a {
+      font-size: 1rem;
+      color: #cfcfcf;
+      line-height: 1.7;
+    }
+
+    .container a {
+      color: #1e90ff;
+      text-decoration: none;
+    }
+
+    .container a:hover {
+      text-decoration: underline;
+    }
+
+    /* BUTTON */
+    .btn {
+      margin-top: 18px;
+      background: #1e90ff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: white;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background: #4aaaff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(30, 144, 255, 0.3);
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 80px;
+      padding: 25px;
+      text-align: center;
+      background: #0b0b0b;
+      color: #b9b9b9;
+      border-top: 1px solid #1a1a1a;
+      font-size: 0.9rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav {
+        gap: 15px;
+        padding: 15px 0;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .container {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="#home">Beranda</a>
+    <a href="#about">Tentang</a>
+    <a href="#rules">Aturan</a>
+    <a href="#join">Cara Bergabung</a>
+    <a href="#contact">Kontak</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Nerver Indo Roleplay</h1>
+      <p>SA-MP Indonesia Roleplay Server – Experience Realistic Roleplay</p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <div class="container" id="about">
+    <h2>Tentang Server</h2>
+    <p>
+      Nerver Indo Roleplay dibangun dengan konsep roleplay modern, stabil, dan fokus pada pengalaman pemain.
+      Dengan sistem yang terus dikembangkan serta komunitas yang kuat, server ini menawarkan kualitas roleplay
+      tingkat tinggi seperti server besar profesional internasional.
+    </p>
+  </div>
+
+  <!-- RULES -->
+  <div class="container" id="rules">
+    <h2>Aturan Dasar</h2>
+    <p>
+      • Dilarang menggunakan cheat, exploit, atau bug abuse.<br>
+      • Wajib bermain sesuai karakter (OOC dilarang saat roleplay aktif).<br>
+      • Hormati seluruh pemain dan staf.<br>
+      • Gunakan bahasa Indonesia yang sopan dan jelas.<br>
+      • Ikuti arahan dari Moderator dan Admin saat bermain.
+    </p>
+  </div>
+
+  <!-- JOIN -->
+  <div class="container" id="join">
+    <h2>Cara Bergabung</h2>
+    <p>
+      <strong>IP Server:</strong> <code>play.nerverindo-roleplay.my.id:7777</code><br>
+      <strong>Versi Game:</strong> SA-MP 0.3.7<br><br>
+      <strong>Grup WhatsApp:</strong> 
+      <a href="https://chat.whatsapp.com/..." target="_blank" rel="noopener">Klik untuk masuk</a>
+    </p>
+    <button class="btn" onclick="copyIP()">Salin IP Server</button>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="container" id="contact">
+    <h2>Kontak Admin</h2>
+    <p>
+      WhatsApp: <a href="https://wa.me/6285191923519" target="_blank" rel="noopener">Hubungi Admin</a><br>
+      Email: <a href="mailto:support@nerverindo.my.id">support@nerverindo.my.id</a>
+    </p>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2025 Nerver Indo Roleplay – All Rights Reserved.
+  </footer>
+
+  <script>
+    function copyIP() {
+      const ip = "play.nerverindo-roleplay.my.id:7777";
+      navigator.clipboard.writeText(ip).then(() => {
+        alert("IP Server berhasil disalin:\n" + ip);
+      }).catch(() => {
+        alert("Gagal menyalin IP. Silakan salin manual.");
+      });
+    }
+  </script>
+
+</body>
+</html>
